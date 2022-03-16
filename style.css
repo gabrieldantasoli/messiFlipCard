@@ -1,0 +1,207 @@
+/*:root{
+    --dark: #1a1b25;
+    --darklight: #292f40;
+    --blue: #26468b;
+    --white: #fbfcfb;
+    --red: #e72025;
+    --box-shadow: 0 .5rem .5rem var(--darklight);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100%;
+    height: 100%;
+    background-color: var(--dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card{
+    position: relative;
+    width: 300px;
+    height: 400px;
+    transform-style: preserve-3d;
+}
+.card .face{
+    position: absolute;
+    top: 0;left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform-style: preserve-3d;
+    transform: perspective(500px) rotateY(0);
+    transition: 2s ease-in-out;
+    backface-visibility: hidden;
+    box-shadow: var(--box-shadow);
+    border-radius: 10px;
+}
+
+.card .face.front{
+    background: linear-gradient(45deg,var(--dark),var(--blue),var(--dark));
+    border: 6px solid var(--red);
+}
+.card:hover .face.front{
+    transform: perspective(500px) rotateY(180deg);
+}
+.card .face.back{
+    background-color: chocolate;
+    transform: perspective(500px) rotateY(180deg);
+    border: 6px solid var(--red);
+}
+.card:hover .face.back{
+    transform: perspective(500px) rotateY(360deg);
+}
+.card .face > *{
+    transform: perspective(500px) translateZ(50px);
+}
+img{
+    width: 60%;
+    border-radius: 50%;
+}
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Lemon&display=swap');
+
+:root{
+    --golden: #daa520;
+    --red: #e72025;
+    --blue: #26468b;
+    --dark: #1f1d27;
+    --lightdark: #292f40;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.card{
+    position: relative;
+    width: 300px;
+    height: 400px;
+    transform-style: preserve-3d;
+}
+.card .face{
+    position: absolute;
+    top: 0;left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    border: 6px solid var(--golden);
+    transform: perspective(500px) rotateY(0);
+    transition: 1.5s ease-in-out;
+    backface-visibility: hidden;
+}
+
+.card .face.front{
+    background: linear-gradient(45deg,var(--dark),var(--blue),var(--dark));
+}
+.card:hover .face.front{
+    transform: perspective(500px) rotateY(180deg);
+}
+.card .face.face.front img{
+    width: 75%;
+}
+.card .face.face.front h2{
+    position: absolute;
+    bottom: 0.5rem;left: 0.5rem;
+    font-family: lemon;
+    font-size: 1rem;
+    color: var(--golden);
+    text-shadow: 0 .5rem .5rem var(--dark);
+}
+.card .face.back{
+    flex-direction: column;
+    transform: perspective(500px) rotateY(180deg);
+    background: linear-gradient(45deg,var(--dark),var(--red),var(--dark));
+}
+.card:hover .face.face.back{
+    transform: perspective(500px) rotateY(360deg);
+}
+.card .face.face.back{
+    display: flex;
+    width: calc(100% - 1rem);
+}
+.card .face.back div:nth-child(1){
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    top: 0.5rem;left: 0.5rem;
+    width: 100%;
+}
+.card .face.back img{
+    border-radius: 10px;
+    width: 200px;
+    border: 2px solid var(--dark);
+}
+.card .face.back .rarity{
+    width: calc(100% - 212px);
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.card .face.back .rarity p{
+    font-family: lemon;
+    font-size: 2rem;
+    color: var(--golden);
+}
+.card .face.back .info{
+    position: absolute;
+    top: calc(200px + 1rem );left: 0.5rem;
+    width: calc(100% - 1rem);
+    height: calc(200px - 2rem);
+    gap: 0.3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.card .face.back .info *{
+    font-size: 1.1rem;
+    font-family: 'russo one';
+    color: aliceblue;
+}
+.card .face.back .info p{
+    position: relative;
+    width: 90%;
+    background-color: var(--dark);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 200px;
+}
+.card .face.back .info span{
+    position: absolute;
+    top: 0;left: 50%;
+    width: 50%;
+    height: 100%;
+    background-color: var(--lightdark);
+    border-radius: 0 200px 200px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
